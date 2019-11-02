@@ -9,6 +9,8 @@ import { Place } from '../models/place.model';
   providedIn: 'root'
 })
 export class DataService {
+  public selectedOptions: any = [];
+
   constructor(private http: HttpClient) {}
 
   httpOptions = {
@@ -16,6 +18,10 @@ export class DataService {
       'x-api-version': '2'
     })
   };
+
+  public selectedLocations(options: any) {
+    this.selectedOptions = options;
+  }
 
   public getLocationData(rating: string, authority: string) {
     return this.http
