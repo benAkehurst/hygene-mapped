@@ -32,7 +32,8 @@ export class DataService {
       .pipe(
         map(resData => {
           const places = [];
-          resData.establishments.forEach(element => {
+          const establishments = (resData as any).establishments;
+          establishments.forEach(element => {
             const data: Place = {
               name: element.BusinessName,
               type: element.BusinessType,

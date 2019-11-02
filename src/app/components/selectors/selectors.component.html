@@ -1,0 +1,30 @@
+<div class="selectors">
+  <div class="auth">
+    <p>Choose Local Authority:</p>
+    <select [(ngModel)]="chosenAuthority" id="authorities">
+      <option
+        *ngFor="let auth of authorities"
+        value="{{ auth.LocalAuthorityId }}"
+      >
+        {{ auth.Name }}
+      </option>
+    </select>
+  </div>
+  <div class="rating">
+    <p>Choose Rating Level:</p>
+    <select [(ngModel)]="chosenRating" id="ratings">
+      <option *ngFor="let rating of ratings" value="{{ rating }}">
+        {{ rating }}</option
+      >
+    </select>
+  </div>
+  <button mat-raised-button class="show-button" (click)="selectPlaceParams()">
+    Choose Options
+  </button>
+</div>
+<div class="loaders">
+  <div class="loader" *ngIf="this.isLoading"><mat-spinner class="spinner"></mat-spinner></div>
+  <div class="loader" *ngIf="this.isReceived">
+    Items Received correctly.
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="page-wrapper">
+  <app-header></app-header>
+  <div class="page-container">
+    <div class="selectors-container">
+      <app-selectors></app-selectors>
+    </div>
+    <div class="map-contianer">
+      <button mat-raised-button color="primary" class="show-button" (click)="generateMap()">
+        SHOW SELECTION ON MAP
+      </button>
+      
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="defZoom">
+        <agm-marker
+          *ngFor="let m of markers"
+          [latitude]="m.geocode.latitude"
+          [longitude]="m.geocode.longitude"
+        >
+          <agm-info-window>
+            <p>Name - {{ m.name }}</p>
+            <p>Rating - {{ m.ratingValue }}</p>
+            <p>Phone - {{ m.phone }}</p>
+            <p>Hygiene - {{ m.score.Hygiene }}</p>
+            <p>Structural - {{ m.score.Structural }}</p>
+            <p>ConfidenceInManagement - {{ m.score.ConfidenceInManagement }}</p>
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
+  </div>
+</div>
