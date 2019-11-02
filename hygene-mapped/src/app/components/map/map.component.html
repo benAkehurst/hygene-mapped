@@ -1,28 +1,23 @@
 <div class="page-wrapper">
   <app-header></app-header>
-  <div class="selectors">
-    <label for="authorities">Choose Local Authority:</label>
-    <select [(ngModel)]="chosenAuthority" id="authorities">
-      <option
-        *ngFor="let auth of authorities"
-        value="{{auth.LocalAuthorityId}}"
-      >
-        {{ auth.Name }}
-      </option>
-    </select>
-    <label for="ratings">Choose Rating Level:</label>
-    <select [(ngModel)]="chosenRating" id="ratings">
-      <option
-        *ngFor="let rating of ratings"
-        value="{{rating}}"
-      >
-        {{ rating }}</option
-      >
-    </select>
-    <button (click)="selectPlaceParams()">Show Selection</button>
-  </div>
-  <div class="loader" *ngIf="this.isLoading">Loading...</div>
-  <div class="data" *ngFor="let place of this.loadedPlaces">
-    {{ place.name }}
-  </div>
+  <app-selectors></app-selectors>
+  <button (click)="generateMap()" [disabled]="!data.selectedOptions">
+    SHOW SELECTION ON MAP
+  </button>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="defZoom">
+    <agm-marker
+      *ngFor="let m of markers"
+      [latitude]="m.geocode.latitude"
+      [longitude]="m.geocode.longitude"
+    >
+      <agm-info-window>
+        <p>Name - {{ m.name }}</p>
+        <p>Rating - {{ m.ratingValue }}</p>
+        <p>Phone - {{ m.phone }}</p>
+        <p>Hygiene - {{ m.score.Hygiene }}</p>
+        <p>Structural - {{ m.score.Structural }}</p>
+        <p>ConfidenceInManagement - {{ m.score.ConfidenceInManagement }}</p>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
 </div>
