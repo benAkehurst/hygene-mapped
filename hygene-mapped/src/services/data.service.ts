@@ -17,10 +17,10 @@ export class DataService {
     })
   };
 
-  public getLocationData() {
+  public getLocationData(rating: string, authority: string) {
     return this.http
       .get(
-        'http://api.ratings.food.gov.uk/Establishments?RatingKey=1&localAuthorityId=89',
+        `http://api.ratings.food.gov.uk/Establishments?RatingKey=${rating}&localAuthorityId=${authority}`,
         { headers: this.httpOptions.headers }
       )
       .pipe(
