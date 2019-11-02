@@ -1,1 +1,26 @@
-<p>selectors works!</p>
+<div class="selectors">
+    <label for="authorities">Choose Local Authority:</label>
+    <select [(ngModel)]="chosenAuthority" id="authorities">
+      <option
+        *ngFor="let auth of authorities"
+        value="{{auth.LocalAuthorityId}}"
+      >
+        {{ auth.Name }}
+      </option>
+    </select>
+    <label for="ratings">Choose Rating Level:</label>
+    <select [(ngModel)]="chosenRating" id="ratings">
+      <option
+        *ngFor="let rating of ratings"
+        value="{{rating}}"
+      >
+        {{ rating }}</option
+      >
+    </select>
+    <button (click)="selectPlaceParams()">Show Selection</button>
+  </div>
+  <div class="loader" *ngIf="this.isLoading">Loading...</div>
+  <div class="loader" *ngIf="this.isReceived">Items Received correctly. Click to show on map</div>
+  <!-- <div class="data" *ngFor="let place of this.loadedPlaces">
+    {{ place.name }}
+  </div> -->
