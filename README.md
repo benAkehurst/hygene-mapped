@@ -1,27 +1,29 @@
 # Hygiene Mapped
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
+![Screenshot of app](./images/Screenshot.png)
 
-## Development server
+## Introduction
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This is a Food Hygeine Ratings App, where I have created a simple web application using the API and data sources at http://api.ratings.food.gov.uk/help that fulfils the user story below:
 
-## Code scaffolding
+<b>
+As a user:
+I want to see on a map all the restaurants in selected Local Authority with specific food hygeine rating
+</b><br></br>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+I wrote the application in Angular, to keep practicing my skills with the framework, and as the project scale grew, I know I wouldn't be able to manage the complexity in a vanilla Javascript project.
 
-## Build
+## Instructions to run
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1. Clone the repo using `git clone git@gitlab.com:benAkehurst/hygiene-mapped.git`
+2. Make sure you have node installed
+3. `cd`into the directory, and run `npm install`
+4. In the `data` folder, add a file called `keys.factory.ts`
+5. In the `keys.factory.ts` file, add `export const gmApiKey: string = 'YOUR GOOGLE MAPS API KEY HERE';`
+6. Then run `ng serve` and you can visit the app at http://localhost:4200/
 
-## Running unit tests
+## TODO's / Improvements
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- design changes / colour scheme
+- set the start point of the map to the users location
+- add all national authoroties via api
