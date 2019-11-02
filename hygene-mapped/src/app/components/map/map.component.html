@@ -1,3 +1,28 @@
-<app-header></app-header>
-<app-selectors></app-selectors>
-<p>map works!</p>
+<div class="page-wrapper">
+  <app-header></app-header>
+  <div class="selectors">
+    <label for="authorities">Choose Local Authority:</label>
+    <select [(ngModel)]="chosenAuthority" id="authorities">
+      <option
+        *ngFor="let auth of authorities"
+        value="{{auth.LocalAuthorityId}}"
+      >
+        {{ auth.Name }}
+      </option>
+    </select>
+    <label for="ratings">Choose Rating Level:</label>
+    <select [(ngModel)]="chosenRating" id="ratings">
+      <option
+        *ngFor="let rating of ratings"
+        value="{{rating}}"
+      >
+        {{ rating }}</option
+      >
+    </select>
+    <button (click)="selectPlaceParams()">Show Selection</button>
+  </div>
+  <div class="loader" *ngIf="this.isLoading">Loading...</div>
+  <div class="data" *ngFor="let place of this.loadedPlaces">
+    {{ place.name }}
+  </div>
+</div>
