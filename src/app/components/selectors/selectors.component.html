@@ -21,10 +21,12 @@
   <button mat-raised-button class="show-button" (click)="selectPlaceParams()">
     Choose Options
   </button>
-</div>
-<div class="loaders">
-  <div class="loader" *ngIf="this.isLoading"><mat-spinner class="spinner"></mat-spinner></div>
-  <div class="loader" *ngIf="this.isReceived">
-    Items Received correctly.
+  <div class="loaders">
+    <div class="loader" *ngIf="this.isLoading && !this.isReceived">
+      <mat-spinner class="spinner"></mat-spinner>
+    </div>
+    <div class="loader" *ngIf="this.isReceived && !this.isLoading">
+      {{loadedPlaces.length}} locations data received.
+    </div>
   </div>
 </div>

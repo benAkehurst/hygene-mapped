@@ -40,6 +40,7 @@ export class SelectorsComponent implements OnInit {
 
   public getSelectedPlace(rating: string, authority: string) {
     this.isLoading = true;
+    this.isReceived = false;
     this.data.getLocationData(rating, authority).subscribe(res => {
       this.loadedPlaces = res;
       if (this.loadedPlaces.length > 1) {
