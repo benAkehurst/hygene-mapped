@@ -18,10 +18,6 @@
     @include margin();
     @include flex-center();
   }
-  .show-button {
-    color: white;
-    background-color: lightgreen;
-  }
   .loaders {
     @include margin();
     @include flex-center();
