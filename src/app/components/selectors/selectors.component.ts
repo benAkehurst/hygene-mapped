@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { DataService } from './../../../services/data.service';
-import { Place } from '../../../models/place.model';
-import { londonData, ratings } from '../../../data/london.factory';
+import { IPlace } from '../../../interfaces/place.interface';
+import { londonData } from '../../../data/london.factory';
+import { ratings } from '../../../data/ratings.factory';
 
 @Component({
   selector: 'app-selectors',
@@ -14,8 +15,8 @@ export class SelectorsComponent implements OnInit {
   public isReceived = false;
   public authorities: any;
   public ratings: Array<number>;
-  public place: Place;
-  public loadedPlaces: Place[];
+  public place: IPlace;
+  public loadedPlaces: IPlace[];
   public chosenRating: string;
   public chosenAuthority: string;
 
