@@ -8,6 +8,9 @@
       <button mat-raised-button color="primary" class="show-button" [disabled]="this.data.selectedOptions.length < 1" (click)="generateMap()">
         SHOW SELECTION ON MAP
       </button>
+      <button mat-raised-button color="primary" class="show-button" [disabled]="this.data.selectedOptions.length < 1" (click)="clearMarkers()">
+        CLEAR SELECTION
+      </button>
       
       <agm-map [latitude]="lat" [longitude]="lng" [zoom]="defZoom">
         <agm-marker

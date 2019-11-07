@@ -21,4 +21,8 @@ export class MapComponent implements OnInit {
     this.markers = this.data.selectedOptions;
     console.log(this.markers);
   }
+
+  public clearMarkers() {
+    this.markers = [];
+  }
 }
