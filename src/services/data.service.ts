@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, of } from 'rxjs';
-import { take, map, tap, delay, switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
-import { Place } from '../models/place.model';
+import { IPlace } from '../interfaces/place.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +33,7 @@ export class DataService {
           const places = [];
           const establishments = (resData as any).establishments;
           establishments.forEach(element => {
-            const data: Place = {
+            const data: IPlace = {
               name: element.BusinessName,
               type: element.BusinessType,
               address: element.AddressLine1,
