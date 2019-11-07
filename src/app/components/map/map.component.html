@@ -5,7 +5,7 @@
       <app-selectors></app-selectors>
     </div>
     <div class="map-contianer">
-      <button mat-raised-button color="primary" class="show-button" (click)="generateMap()">
+      <button mat-raised-button color="primary" class="show-button" [disabled]="this.data.selectedOptions.length < 1" (click)="generateMap()">
         SHOW SELECTION ON MAP
       </button>
       

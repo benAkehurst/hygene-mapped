@@ -1,8 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { DataService } from './../../../services/data.service';
-import { Place } from '../../../models/place.model';
-import { londonData, ratings } from '../../../data/london.factory';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -15,10 +13,9 @@ export class MapComponent implements OnInit {
   public defZoom = 9;
   public markers: Array<any> = [];
 
-  constructor(private data: DataService) {}
+  constructor(public data: DataService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   public generateMap() {
     this.markers = this.data.selectedOptions;
